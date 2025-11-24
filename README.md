@@ -220,8 +220,4 @@ This is a mock implementation using simulated DEX responses. In production:
 - Add proper error handling for network failures
 - Use Redis pub/sub instead of polling for WebSocket updates
 
-The queue can handle 10 concurrent orders with 3 retry attempts (exponential backoff). Failed orders persist their failure reason in the database for debugging.
 
----
-
-**Note:** This was built as a backend engineering assignment demonstrating order execution, queue management, and real-time updates.
