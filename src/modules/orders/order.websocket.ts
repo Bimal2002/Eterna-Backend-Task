@@ -1,11 +1,12 @@
-import type { WebSocketHandler } from "@fastify/websocket";
+import type { WebsocketHandler } from "@fastify/websocket";
+import type { FastifyRequest } from "fastify";
 import { orderService } from "./order.service";
 import { logger } from "../../libs/logger";
 
 const POLL_INTERVAL = 500;
 
-export const createStatusStreamHandler = (): WebSocketHandler => {
-  return async (connection, req) => {
+export const createStatusStreamHandler = (): WebsocketHandler => {
+  return async (connection, req: FastifyRequest) => {
     const { orderId } = req.params as { orderId: string };
 
     if (!orderId) {

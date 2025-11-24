@@ -6,4 +6,6 @@ export const logger = {
   fatal: (...args: unknown[]) => console.error("[fatal]", ...args),
   trace: (...args: unknown[]) => console.log("[trace]", ...args),
   child: () => logger,
+  level: "info" as const,
+  silent: () => {},
 };
