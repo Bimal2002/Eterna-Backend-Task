@@ -15,7 +15,7 @@ If I had to add limit orders tomorrow, I'd just throw in a price check before th
 - **BullMQ + Redis** - Rock solid job queue, handles retries beautifully  
 - **PostgreSQL + Prisma** - Postgres for persistence, Prisma makes DB work actually pleasant
 
-## How Everything Flows
+## How Everything Flowsgit 
 
 Pretty simple flow:
 1. You POST to `/api/orders/execute` with your order details

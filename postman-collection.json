@@ -1,0 +1,46 @@
+{
+  "info": {
+    "name": "Order Execution Engine",
+    "description": "API endpoints for order execution with DEX routing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Execute Market Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/orders/execute",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "orders", "execute"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"market\",\n  \"tokenIn\": \"SOL\",\n  \"tokenOut\": \"USDC\",\n  \"amount\": 1\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "WebSocket Status (Instructions)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "ws://localhost:3000/api/orders/status/:orderId",
+          "protocol": "ws",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "orders", "status", ":orderId"]
+        },
+        "description": "Replace :orderId with the actual order ID from the POST response. In Postman, go to WebSocket Request to test this endpoint."
+      },
+      "response": []
+    }
+  ]
+}
