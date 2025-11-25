@@ -31,9 +31,10 @@ Railway offers PostgreSQL + Redis both free in one place.
 
 3. **Copy Redis URL**
    - Click on your database
-   - Scroll to "REST API" section
+   - Scroll to **"Connect"** section (NOT REST API)
    - Copy the **Redis URL** (starts with `rediss://`)
    - It looks like: `rediss://default:xxx@xxx.upstash.io:6379`
+   - **Important**: Use the TLS/SSL URL (rediss:// with double 's')
 
 ---
 
@@ -76,15 +77,17 @@ Railway offers PostgreSQL + Redis both free in one place.
 ```env
 NODE_ENV=production
 PORT=10000
-DATABASE_URL=<paste-your-postgres-internal-url>
-REDIS_URL=<paste-your-upstash-redis-url>
+DATABASE_URL=postgresql://orders_db_ere2_user:uEstBmlGveHYQ8vYpsQKLFqSlrJreE1r@dpg-d4imv42li9vc73em5flg-a/orders_db_ere2
+REDIS_URL=rediss://default:ATe0AAIncDI0NmQ0YTMyZGVhZTY0YTk1YTBhZDg2YjA5Zjk0ODI3OXAyMTQyNjA@steady-thrush-14260.upstash.io:6379
 BULLMQ_PREFIX=oe:
 CONCURRENT_ORDERS=10
 ```
 
-**⚠️ Important:**
-- Replace `<paste-your-postgres-internal-url>` with the Internal URL from step 1
-- Replace `<paste-your-upstash-redis-url>` with URL from Upstash
+**⚠️ Note:**
+- These are your actual credentials from Render PostgreSQL and Upstash Redis
+- `DATABASE_URL` uses the Internal connection string (starts with `postgresql://`)
+- `REDIS_URL` must use `rediss://` (TLS/SSL) format, not HTTPS
+- Format: `rediss://default:YOUR_TOKEN@YOUR_HOST.upstash.io:6379`
 
 5. Click **"Create Web Service"**
 
