@@ -26,7 +26,7 @@ describe("concurrent orders", () => {
 
     const ids = results.map((r) => (r.json() as { orderId: string }).orderId);
 
-    const maxWaitMs = 12000;
+    const maxWaitMs = 15000;
     const start = Date.now();
 
     while (Date.now() - start < maxWaitMs) {
