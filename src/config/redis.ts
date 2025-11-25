@@ -6,7 +6,6 @@ const createRedisConnection = () => {
     return new Redis(env.REDIS_URL, {
       maxRetriesPerRequest: null,
       retryStrategy: (times) => Math.min(times * 50, 2000),
-      lazyConnect: true,
     });
   }
   return new Redis({
@@ -14,7 +13,6 @@ const createRedisConnection = () => {
     port: 6379,
     maxRetriesPerRequest: null,
     retryStrategy: (times) => Math.min(times * 50, 2000),
-    lazyConnect: true,
   });
 };
 
